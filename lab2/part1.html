@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab 2: Intro to Three.js Part 1</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="../three.js-master/build/three.js"></script>
+		<script>
+			// Our Javascript will go here.
+
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(75, 
+            window.innerWidth/window.innerHeight, 0.1, 1000);
+
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            var geometry = new THREE.BoxGeometry();
+            var material = new THREE.MeshBasicMaterial( {color: 0x03a5fc} );
+            var cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+            camera.position.z = 10; //this moves the camera towards the viewer
+
+            var geometry2 = new THREE.BoxGeometry();
+            var material2 = new THREE.MeshBasicMaterial( {color: 0x696969} );
+            var cube2 = new THREE.Mesh(geometry2, material2);
+            geometry2.translate( 1, 0, 2 );
+            geometry2.scale(69,69,69)
+            scene.add(cube2);
+            camera.position.z = 10; //this moves the camera towards the viewer
+
+
+            var geometry3 = new THREE.BoxGeometry();
+            var material3 = new THREE.MeshBasicMaterial( {color: 0x9b42f5} );
+            var cube3 = new THREE.Mesh(geometry3, material3);
+            geometry3.scale(2,2,2)
+            geometry3.translate( 1, 1, 2);
+            scene.add(cube3);
+            camera.position.z = 10; //this moves the camera towards the viewer
+
+
+            function animate() {
+                geometry3.rotateX(2);
+                geometry3.rotateY(1);
+                geometry3.rotateZ(3);
+                geometry2.rotateY(0.1);
+                geometry.rotateX(0.01);
+                geometry.rotateY(0.01);
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+            animate();
+
+		</script>
+	</body>
+</html>
