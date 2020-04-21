@@ -14,7 +14,9 @@
                 //Adds the shaders
                 THREE.Cache.enabled = true;
                 var count = 0;
+                var count2 = 0;
                 var loader = new THREE.FileLoader();
+                var loader2 = new THREE.FileLoader();
                 var fshader, vshader;
 
 			// setup the scene
@@ -25,7 +27,10 @@
       			renderer.setSize(window.innerWidth, window.innerHeight);
       			document.body.appendChild(renderer.domElement);
 			    camera.position.z = 5;
-			
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
             //Loads the vertex Shader
             loader.load('shaders/vertexShader.vert',
             // onLoad callback
@@ -60,7 +65,7 @@
             // onError callback
                 function (err) {
                     console.error('An error happened');
-            });
+            }); 
 
             //Adds a cool cube B)
             var geometry1, material1, mesh1;
@@ -87,9 +92,51 @@
                 }	
             }
 
-            //Adds another cool cube B)
-            function addCoolCube2() {
-                if(count == 2) {
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
+			
+            //Loads the vertex Shader
+            loader2.load('shaders/epicVertex.vert',
+            // onLoad callback
+                function (data) {
+                        console.log(data); // output the text to the console
+                        vshader = data;
+                        count2 += 1;
+                        addCoolerCube(); // we will write this method
+                    },
+            // onProgress callback
+                function (xhr) {
+                    console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+                },
+            // onError callback
+                function (err) {
+                    console.error('An error happened');
+                });
+
+            //Loads the fragment shader
+            loader2.load('shaders/epicShader.frag',
+            // onLoad callback
+                function (data) {
+                        console.log(data); // output the text to the console
+                        fshader = data;
+                        count2 += 1;
+                        addCoolerCube(); // we will write this method
+                    },
+            // onProgress callback
+                function (xhr) {
+                    console.log((xhr.loaded/xhr.total * 100)+ '% loaded');
+                },
+            // onError callback
+                function (err) {
+                    console.error('An error happened');
+            }); 
+
+            //Adds a cool cube B)
+            var geometry5, material5, mesh5;
+
+            function addCoolerCube() {
+                if(count2 == 2) {
                     let uniforms = {
                             colorB: {type: 'vec3', value: new 
                             THREE.Color(0xACB6E5)},
@@ -104,13 +151,17 @@
                     vertexShader: vshader,
                     precision: "mediump"});
 
-                    mesh2 = new THREE.Mesh(geometry5, material5);
-                    mesh2.position.x -= 4;
-                    scene.add(mesh1);
+                    mesh5 = new THREE.Mesh(geometry5, material5);
+                    mesh5.position.x = -4;
+                    scene.add(mesh5);
                 }	
             }
-
-			// setup the cube
+   
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                     
+            
+            // setup the cube
                 var geometry = new THREE.BoxGeometry();
                 var material = new THREE.MeshPhongMaterial( { color: 0xdddddd, 
                 specular: 0x00ff00, shininess: 30 });
@@ -156,6 +207,12 @@
                 if(geometry1) {
                     geometry1.rotateX(0.01);
                     geometry1.rotateY(0.01);
+                }
+
+                //Animates the cool cubes
+                if(geometry5) {
+                    geometry5.rotateX(0.01);
+                    geometry5.rotateY(0.01);
                 }
 
 				renderer.render(scene, camera);
