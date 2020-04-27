@@ -13,8 +13,8 @@ Edited the shader file, so that it had a multiplier, and so that way it scales t
 :)
 
 Part 24
-A) x = (u * 8) - 1
-B) y = 7 - ((v * 8) - 1)
+A) x = (u * 8)
+B) y = 7 - ((v * 8))
 C) x = Light Greay
 x = (.375 * 8) - 1
 x = 3 - 1
