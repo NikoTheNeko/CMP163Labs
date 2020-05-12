@@ -10,7 +10,7 @@ Then after that I put a normal map on it to give it that cloth kind of look and 
 Then I tiled it to make it very tiny so you can only really see it when you get close to it.
 ![](mousepad.png)
 ![](RealLifeTexture1.png)
-![](RealLifeTexture2.png)
+![](RealLifeTexture2.jpg)
 4. Textures
 - I put a picture of myself and a picture of another person into the game and placed them over spheres and one picture of myself on a plane.
 5. Skyboxes
