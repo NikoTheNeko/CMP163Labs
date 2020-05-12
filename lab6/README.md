@@ -1,8 +1,8 @@
 2. Lighting Overview & Lights
-- Spotlight
-- Directional Light
-- Point Light
-- Area Light
+- Spotlight - It's like a flashlight / (an actual spotlight), it projects a cone of light and reacts to position and rotation
+- Directional Light - It's like the sun, it shines in a specific direction and on everything so position doesn't matter
+- Point Light - It's like a lightbulb and illuminates it based on it's position but illuminates in all positions
+- Area Light - Only works with baked lightmaps It shines in all directions in a rectangular frame
 ![](LightsAndTextures.png)
 3. Materials & The Standard Shader
 - For the material I remade I remade my mousepad. It's a matte finish and it's not very reflective so I put the metallic to 0 and the smoothness to 0 because it is not smooth
