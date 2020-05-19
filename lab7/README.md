@@ -12,3 +12,9 @@ Part 1
  - pretty epic!
 
 Partner stuff
+ - My partner did a cool little beach with the ocean andd stuff.
+ - The mountains in the back look a little bit foggy which is cool
+ - I love the trees they made!
+ - The waves look like they're crashing against the water and it's so cool
+ - The rocks look cute
+ - Learned that you can use the displacement shader in different ways, like the clouds!
